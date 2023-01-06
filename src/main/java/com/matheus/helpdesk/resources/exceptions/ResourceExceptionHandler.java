@@ -40,6 +40,18 @@ public class ResourceExceptionHandler {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
 	}
 	
+	@ExceptionHandler(IllegalArgumentException.class)
+	public ResponseEntity<StandardError> dataIntegrityViolationException(IllegalArgumentException ex, HttpServletRequest request) {
+		
+		StandardError error = new StandardError(System.currentTimeMillis(), 
+				HttpStatus.BAD_REQUEST.value(), 
+				"Data Breach",
+				ex.getMessage(),
+				request.getRequestURI());
+		
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+	}
+	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<StandardError> validationErrors(MethodArgumentNotValidException ex, HttpServletRequest request) {
 		
