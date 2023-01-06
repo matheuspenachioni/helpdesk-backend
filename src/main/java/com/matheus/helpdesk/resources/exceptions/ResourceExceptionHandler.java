@@ -11,6 +11,7 @@ import com.matheus.helpdesk.services.exceptions.DataIntegrityViolationException;
 import com.matheus.helpdesk.services.exceptions.ObjectNotFoundException;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolationException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
@@ -53,6 +54,20 @@ public class ResourceExceptionHandler {
 		}
 		
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
+	}
+	
+	@ExceptionHandler(ConstraintViolationException.class)
+	public ResponseEntity<StandardError> constraintViolationException(ConstraintViolationException ex, HttpServletRequest request) {
+	 
+	    StandardError error = new StandardError(
+	            System.currentTimeMillis(),
+	            HttpStatus.BAD_REQUEST.value(),
+	            "Validation Error",
+	            "Número do registro de contribuinte individual brasileiro (CPF) inválido!",
+	            request.getRequestURI()
+	    );
+	 
+	    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
 	}
 	
 }
