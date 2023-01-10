@@ -20,7 +20,7 @@ import com.matheus.helpdesk.domain.Tecnico;
 import com.matheus.helpdesk.domain.dtos.TecnicoDTO;
 import com.matheus.helpdesk.services.TecnicoService;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/tecnicos")

@@ -16,7 +16,7 @@ import com.matheus.helpdesk.domain.enums.Status;
 import com.matheus.helpdesk.repositories.ChamadoRepository;
 import com.matheus.helpdesk.services.exceptions.ObjectNotFoundException;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @Service
 public class ChamadoService {

@@ -19,7 +19,7 @@ import com.matheus.helpdesk.domain.Chamado;
 import com.matheus.helpdesk.domain.dtos.ChamadoDTO;
 import com.matheus.helpdesk.services.ChamadoService;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/chamados")

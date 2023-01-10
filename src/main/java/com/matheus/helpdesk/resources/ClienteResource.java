@@ -20,7 +20,7 @@ import com.matheus.helpdesk.domain.Cliente;
 import com.matheus.helpdesk.domain.dtos.ClienteDTO;
 import com.matheus.helpdesk.services.ClienteService;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/clientes")
